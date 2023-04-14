@@ -26,7 +26,7 @@ const InputTodo = ({ addTodoItem }) => {
         <br />
         {' '}
         <p>{title}</p>
-        <button className="input-submit">Submit</button>
+        <button type="submit" className="input-submit">Submit</button>
       </form>
       <span className="submit-warning">{message}</span>
     </>

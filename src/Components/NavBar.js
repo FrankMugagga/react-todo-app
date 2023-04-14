@@ -1,9 +1,7 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 
 const NavBar = () => {
   const [state, setState] = useState({ fname: '', lname: '', message: '' });
-
-  const [check, setCheck] = useState({ isChecked: false });
 
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
@@ -20,18 +18,18 @@ const NavBar = () => {
     <>
 
       <form>
-        <label>
+        <label htmlFor="fname">
           <input value={state.fname} type="text" name="fname" onChange={handleChange} />
         </label>
 
-        <label>
+        <label htmlFor="lname">
           <input value={state.lname} type="text" name="lname" onChange={handleChange} />
         </label>
 
-        <label>
+        <label htmlFor="message">
           <textarea
             rows="10"
-            column="5"
+            cols="5"
             value={state.message}
             type="message"
             name="message"
@@ -39,7 +37,7 @@ const NavBar = () => {
           />
         </label>
 
-        <label>
+        <label htmlFor="isCheked">
           <input
             type="checkbox"
             name="isChecked"

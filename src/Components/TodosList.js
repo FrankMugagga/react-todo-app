@@ -1,15 +1,5 @@
+import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
-
-/* const TodosList = (props, setTodos) => {
-    return (
-      <ul>
-        {props.todosProps.map((todo) => (
-          <TodoItem setTodos={setTodos} itemProp={todo} />
-        ))}
-      </ul>
-    );
-  };
-  export default TodosList; */
 
 const TodosList = ({
   todosProps, handleChange, delTodo, setUpdate,
@@ -26,4 +16,12 @@ const TodosList = ({
     ))}
   </ul>
 );
+
+TodosList.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  delTodo: PropTypes.func.isRequired,
+  setUpdate: PropTypes.func.isRequired,
+  todosProps: PropTypes.objectOf(PropTypes.string).isRequired,
+};
+
 export default TodosList;

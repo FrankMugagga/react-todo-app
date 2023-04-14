@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import styles from './TodoItem.module.css';
-import propTypes from 'prop-types';
 
 const TodoItem = ({
   itemProp, handleChange, delTodo, setUpdate,
@@ -20,7 +20,7 @@ const TodoItem = ({
   }
 
   const handleUpdatedDone = (event) => {
-    if (event.key == 'Enter') {
+    if (event.key === 'Enter') {
       setEditing(false);
     }
   };
@@ -34,8 +34,8 @@ const TodoItem = ({
           onChange={() => handleChange(itemProp.id)}
         />
 
-        <button onClick={handleEditing}>Edit</button>
-        <button onClick={() => delTodo(itemProp.id)}>Delete</button>
+        <button type="submit" onClick={handleEditing}>Edit</button>
+        <button type="submit" onClick={() => delTodo(itemProp.id)}>Delete</button>
         {itemProp.title}
       </div>
       <input
@@ -50,4 +50,12 @@ const TodoItem = ({
     </li>
   );
 };
+
+TodoItem.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  delTodo: PropTypes.func.isRequired,
+  setUpdate: PropTypes.func.isRequired,
+  itemProp: PropTypes.objectOf(PropTypes.string).isRequired,
+};
+
 export default TodoItem;
